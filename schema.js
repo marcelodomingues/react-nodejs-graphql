@@ -39,7 +39,7 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(LaunchType),
       resolve(parent, args) {
         return axios
-          .get('https://api.spacexdata.com/v3/launches')
+          .get('https://api.spacexdata.com/v3/launches?limit=50')
           .then(res => res.data);
       }
     },
@@ -58,7 +58,7 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(RocketType),
       resolve(parent, args) {
         return axios
-          .get('https://api.spacexdata.com/v3/rockets')
+          .get('https://api.spacexdata.com/v3/rockets?_limit=50')
           .then(res => res.data);
       }
     },
